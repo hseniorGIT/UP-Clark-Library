@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             if (libraryCheckBox.checked == true) {
                 //NOTE replace with your institution's Primo URL (VE or BO)
-                var newlibraryURL = 'https://example.com/primo-explore/search?query=any,contains,' + searchstring + '&tab=all_content&search_scope=All_Content&vid=UBL_V1&lang=en_US&offset=0';
+                var newlibraryURL = 'https://alliance-up.primo.exlibrisgroup.com/discovery/search?query=any,contains,' + searchstring + '&tab=all_content&search_scope=All_Content&vid=01ALLIANCE_UPORT:UPORT&lang=en_US&offset=0';
                 chrome.tabs.create({
                     url: newlibraryURL
                 });
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
 
             if (googleScholarCheckBox.checked == true) {
-                var newScholarURL = 'https://scholar.google.com/scholar?q=' + searchstring;
+                var newScholarURL = 'https://scholar.google.com/scholar?submitButton=&q=&hl=en&inst=1171421178053499104&q=' + searchstring;
                 chrome.tabs.create({
                     url: newScholarURL
                 });
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             if (pubmedCheckBox.checked == true) {
                 //NOTE replace '****' with your library's otool id
-                var newPubmedURL = 'https://www.ncbi.nlm.nih.gov/pubmed/?otool=****&term=' + searchstring;
+                var newPubmedURL = 'https://www.ncbi.nlm.nih.gov/pubmed/?otool=orwwcmlib&term=' + searchstring;
                 chrome.tabs.create({
                     url: newPubmedURL
                 });

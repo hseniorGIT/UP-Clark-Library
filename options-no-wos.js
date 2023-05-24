@@ -14,15 +14,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         document.getElementById('library').checked = (storage.library == true);
     });
 
-    document.getElementById('wos').addEventListener('change', function (e) {
-        chrome.storage.sync.set({
-            'wos': (document.getElementById('wos').checked)
-        }, function () { });
-    });
-    chrome.storage.sync.get('wos', function (storage) {
-        document.getElementById('wos').checked = (storage.wos == true);
-    });
-
     document.getElementById('worldcat').addEventListener('change', function (e) {
         chrome.storage.sync.set({
             'worldcat': (document.getElementById('worldcat').checked)
@@ -75,7 +66,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         //If both text and selection are entered, execute:
         if (document.querySelectorAll("input[class='form-check-input']:checked").length > 0 && document.getElementById('searchInput').value) {
             var libraryCheckBox = document.getElementById('library');
-            var wosCheckBox = document.getElementById('wos');
             var worldcatCheckBox = document.getElementById('worldcat');
             var googleScholarCheckBox = document.getElementById('scholar');
             var pubmedCheckBox = document.getElementById('pubmed');
@@ -88,15 +78,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 });
             }
 
-            if (wosCheckBox.checked == true) {
-                //NOTE Web of Knowledge usually requires IP auhentication. At Leiden University we use EzProxy. If your institution also uses EzProxy, replace the following URL's details with your own.
-                var newWosURL = 'https://gateway-webofknowledge-com.YOUREZPROXY.URL.COM/gateway/Gateway.cgi?GWVersion=2&SrcApp=WEB&SrcAuth=HSB&DestApp=WOS&DestLinkType=GeneralSearchSummary&topic=' + searchstring + '&btnWS=Search';
-                chrome.tabs.create({
-                    url: newWosURL
-                });
-            }
-
-            if (worldcatCheckBox.checked == true) {
+           if (worldcatCheckBox.checked == true) {
                 var newWorldcatURL = 'https://www.worldcat.org/search?q=' + searchstring;
                 chrome.tabs.create({
                     url: newWorldcatURL

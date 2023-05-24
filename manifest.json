@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+
+    "name": "Library Search Plugin",
+    "description": "Search the your Library's Catalogue at any moment without leaving your current page!",
+    "version": "2022.07.27",
+    "author": "Leiden University Libraries",
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'"
+    },
+    "action": {
+        "default_icon": "/images/icons/icon128.png",
+        "default_popup": "popup.html",
+        "default_title": "Library Search Plugin"
+    },
+    "icons": {
+        "16": "/images/icons/icon16.png",
+        "48": "/images/icons/icon48.png",
+        "128": "/images/icons/icon128.png"
+    },
+    "background": {
+        "service_worker": "js/background.js"
+    },
+    "minimum_chrome_version": "92",
+    "permissions": [
+    "contextMenus",
+    "tabs",
+    "storage"]
+}

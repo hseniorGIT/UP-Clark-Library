@@ -2,7 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", function (event) {
 
-    //SECTION select your library catalogue as default
+    //SECTION select your library catalog as default
     document.getElementById("library").checked = true;
     //!SECTION
 
